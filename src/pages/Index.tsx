@@ -16,11 +16,11 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 hero-gradient grid-background">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                Secure Your <span className="text-primary-500">Digital Future</span>
+                Secure Your <br /><span className="text-primary-500">Digital Future</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 max-w-lg">
                 Comprehensive cybersecurity services designed to protect your business from evolving threats in the digital landscape.
@@ -35,18 +35,7 @@ const Index = () => {
                 </Button>
               </div>
               
-              <div className="mt-10 inline-flex items-center space-x-2">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3].map(i => (
-                    <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-medium">
-                      {i}
-                    </div>
-                  ))}
-                </div>
-                <span className="text-sm text-gray-600">
-                  Trusted by <span className="font-medium">1,000+</span> businesses
-                </span>
-              </div>
+            
             </div>
             <div className="hidden lg:block">
               <DashboardMockup />
@@ -68,7 +57,7 @@ const Index = () => {
 
       {/* Stats Section */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-20">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               { value: "99.9%", label: "Uptime" },

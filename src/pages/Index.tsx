@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import DashboardMockup from "@/components/DashboardMockup";
 import Features from "@/components/Features";
 import TrustedBy from "@/components/TrustedBy";
+import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -83,6 +84,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+      
+      {/* Testimonials Section */}
+      <Testimonials />
       
       {/* CTA Section */}
       <CTA />

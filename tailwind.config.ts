@@ -19,6 +19,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Poppins', 'sans-serif'],
+				poppins: ['Poppins', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -28,8 +32,8 @@ export default {
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
-          100: '#F1F0FB', // light purple
-          500: '#6C63FF', // main purple
+					100: '#F7F7F7', // light gray for black theme
+					500: '#000000', // black
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -46,7 +50,7 @@ export default {
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))',
-          yellow: '#FFD166',
+					yellow: '#F2F2F2', // light gray instead of yellow for B&W theme
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -93,6 +97,26 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
+			typography: {
+				DEFAULT: {
+					css: {
+						maxWidth: '65ch',
+						lineHeight: '1.5',
+						p: {
+							marginTop: '1.5em',
+							marginBottom: '1.5em',
+						},
+						h1: {
+							fontWeight: '600',
+							letterSpacing: '-0.025em',
+						},
+						h2: {
+							fontWeight: '600',
+							letterSpacing: '-0.025em',
+						}
+					}
+				}
 			}
 		}
 	},

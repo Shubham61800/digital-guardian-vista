@@ -48,23 +48,23 @@ const CTA = () => {
   }, []);
 
   return (
-    <section className="py-20">
+    <section className="py-24">
       <div className="container mx-auto px-6">
         <div 
           ref={ctaRef}
-          className="bg-gradient-to-r from-primary-500/10 to-accent-yellow/10 rounded-2xl p-8 md:p-12 shadow-lg"
+          className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-12 md:p-16 shadow-xl"
         >
           <div className="max-w-3xl mx-auto text-center">
-            <h2 ref={titleRef} className="text-3xl md:text-4xl font-bold mb-4">Ready to secure your business?</h2>
-            <p ref={textRef} className="text-gray-600 mb-8">
+            <h2 ref={titleRef} className="text-3xl md:text-4xl font-semibold mb-4 tracking-tight">Ready to secure your business?</h2>
+            <p ref={textRef} className="text-gray-600 mb-10 text-lg">
               Join thousands of companies that trust CyberShield to protect their digital assets from cyber threats.
             </p>
-            <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary-500 hover:bg-primary-500/90 text-white button-glow">
+            <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button size="lg" className="bg-black hover:bg-black/90 text-white button-glow px-8 py-6 text-base">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="border-black text-black hover:bg-gray-100 px-8 py-6 text-base">
                 Schedule a Demo
               </Button>
             </div>

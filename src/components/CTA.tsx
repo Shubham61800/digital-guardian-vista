@@ -49,7 +49,7 @@ const CTA = () => {
 
   return (
     <section className="py-24">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-20">
         <div 
           ref={ctaRef}
           className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-12 md:p-16 shadow-xl"

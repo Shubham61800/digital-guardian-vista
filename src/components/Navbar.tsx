@@ -17,24 +17,21 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-700 hover:text-primary-500 transition-colors">
+            <a href="#" className="text-gray-700 hover:text-primary-500 transition-colors">
               Home
             </a>
-            <a href="#pricing" className="text-gray-700 hover:text-primary-500 transition-colors">
-             Services
+            <a href="#features" className="text-gray-700 hover:text-primary-500 transition-colors">
+              Features
             </a>
-            <a href="#about" className="text-gray-700 hover:text-primary-500 transition-colors">
-              About
+            <a href="#contact" className="text-gray-700 hover:text-primary-500 transition-colors">
+              Contact
             </a>
             <div className="hidden md:flex items-center space-x-4">
-            <Button className="bg-primary-500 hover:bg-primary-500/90 text-white button-glow">
-             Contact Us
-            </Button>
+              <Button className="bg-primary-500 hover:bg-primary-500/90 text-white button-glow">
+                Contact Us
+              </Button>
+            </div>
           </div>
-          </div>
-
-          {/* Auth Buttons */}
-          
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex">
@@ -53,22 +50,18 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 py-4 bg-white rounded-lg shadow-md">
             <div className="flex flex-col space-y-3 px-4">
-              <a href="#features" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
+              <a href="#" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
                 Home
               </a>
-              <a href="#pricing" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
-                Services
+              <a href="#features" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
+                Features
               </a>
-              <a href="#about" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
-                About
+              <a href="#contact" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
+                Contact
               </a>
-             
               <div className="pt-2 flex flex-col space-y-3">
-                <Button variant="outline" className="w-full justify-center">
-                  Sign In
-                </Button>
                 <Button className="w-full justify-center bg-primary-500 hover:bg-primary-500/90">
-                  Sign Up
+                  Contact Us
                 </Button>
               </div>
             </div>

@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,17 +13,17 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-xl font-bold text-primary-500">Softwaroid</span>
+            <Link to="/" className="text-xl font-bold text-primary-500">Softwaroid</Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-700 hover:text-primary-500 transition-colors">
+            <Link to="/" className="text-gray-700 hover:text-primary-500 transition-colors">
               Home
-            </a>
-            <a href="#pricing" className="text-gray-700 hover:text-primary-500 transition-colors">
+            </Link>
+            <Link to="/services" className="text-gray-700 hover:text-primary-500 transition-colors">
              Services
-            </a>
+            </Link>
             <a href="#about" className="text-gray-700 hover:text-primary-500 transition-colors">
               About
             </a>
@@ -32,9 +33,6 @@ const Navbar = () => {
             </Button>
           </div>
           </div>
-
-          {/* Auth Buttons */}
-          
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex">
@@ -53,12 +51,12 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 py-4 bg-white rounded-lg shadow-md">
             <div className="flex flex-col space-y-3 px-4">
-              <a href="#features" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
+              <Link to="/" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
                 Home
-              </a>
-              <a href="#pricing" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
+              </Link>
+              <Link to="/services" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
                 Services
-              </a>
+              </Link>
               <a href="#about" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
                 About
               </a>

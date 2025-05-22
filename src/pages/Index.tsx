@@ -6,7 +6,6 @@ import DashboardMockup from "@/components/DashboardMockup";
 import Features from "@/components/Features";
 import TrustedBy from "@/components/TrustedBy";
 import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/Contact";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -77,9 +76,6 @@ const Index = () => {
       
       {/* Testimonials Section */}
       <Testimonials />
-      
-      {/* Contact Section */}
-      <Contact />
       
       {/* CTA Section */}
       <CTA />

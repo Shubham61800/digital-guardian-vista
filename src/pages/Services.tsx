@@ -20,7 +20,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import CTA from "@/components/CTA";
 
-const Services = () => {
+export const Services = () => {
   const services = [
     {
       icon: Shield,
@@ -299,5 +299,3 @@ const Services = () => {
     </div>
   );
 };
-
-export default Services;

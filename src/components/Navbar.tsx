@@ -24,9 +24,9 @@ const Navbar = () => {
             <Link to="/services" className="text-gray-700 hover:text-primary-500 transition-colors">
              Services
             </Link>
-            <a href="#about" className="text-gray-700 hover:text-primary-500 transition-colors">
+            <Link to="/about" className="text-gray-700 hover:text-primary-500 transition-colors">
               About
-            </a>
+            </Link>
             <div className="hidden md:flex items-center space-x-4">
             <Button className="bg-primary-500 hover:bg-primary-500/90 text-white button-glow">
              Contact Us
@@ -57,9 +57,9 @@ const Navbar = () => {
               <Link to="/services" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
                 Services
               </Link>
-              <a href="#about" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
+              <Link to="/about" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
                 About
-              </a>
+              </Link>
              
               <div className="pt-2 flex flex-col space-y-3">
                 <Button variant="outline" className="w-full justify-center">

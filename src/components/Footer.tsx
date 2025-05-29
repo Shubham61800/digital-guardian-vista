@@ -127,7 +127,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-gray-200 pt-8">
           <p className="text-sm text-gray-500 text-center">
-            &copy; {new Date().getFullYear()} CyberShield. All rights reserved.
+            &copy; {new Date().getFullYear()} Softwaroid. All rights reserved.
           </p>
         </div>
       </div>

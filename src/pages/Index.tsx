@@ -7,10 +7,8 @@ import TrustedBy from "@/components/TrustedBy";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navbar />
 
       {/* Hero Section with Shuttle Gradient */}
@@ -36,7 +34,7 @@ const Index = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
                 Secure Your <br />
                 <span className="relative">
-                  <span className="relative z-10 text-primary-500">
+                  <span className="relative z-10 text-primary-500 text-primary-hover">
                     Digital Future
                   </span>
                   <span className="absolute -bottom-2 left-0 w-full h-3 bg-black/5 rounded-full -z-10 transform -rotate-1"></span>
@@ -47,21 +45,14 @@ const Index = () => {
                 business from evolving threats in the digital landscape.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  className="bg-primary-500 hover:bg-primary-500/90 text-white button-glow relative overflow-hidden group"
-                >
+                <Button size="lg" className="bg-primary-500 hover:bg-primary-500/90 text-white button-glow relative overflow-hidden group">
                   <span className="absolute inset-0 w-full h-full bg-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
                   <span className="relative z-10 flex items-center">
                     Get Started
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-black hover:bg-black/5 transition-colors"
-                >
+                <Button size="lg" variant="outline" className="border-black hover:bg-black/5 transition-colors">
                   Learn More
                 </Button>
               </div>
@@ -69,14 +60,9 @@ const Index = () => {
               {/* Modern Trust Indicators */}
               <div className="mt-10 flex items-center space-x-4">
                 <div className="flex -space-x-2">
-                  {[1, 2, 3].map((i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-bold"
-                    >
+                  {[1, 2, 3].map(i => <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-bold">
                       {String.fromCharCode(64 + i)}
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
                 <div className="text-sm text-gray-600">
                   Trusted by <span className="font-semibold">500+</span>{" "}
@@ -89,7 +75,7 @@ const Index = () => {
               <div className="relative z-10 transform hover:-rotate-2 hover:scale-105 transition-transform duration-500">
                 <DashboardMockup />
               </div>
-            </div> */}
+             </div> */}
           </div>
         </div>
       </section>
@@ -110,22 +96,24 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-tr from-gray-50 to-white"></div>
         <div className="container mx-auto px-4 md:px-20 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { value: "99.9%", label: "Uptime" },
-              { value: "24/7", label: "Monitoring" },
-              { value: "<30min", label: "Response Time" },
-              { value: "500+", label: "Threats Blocked Daily" },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100"
-              >
+            {[{
+            value: "99.9%",
+            label: "Uptime"
+          }, {
+            value: "24/7",
+            label: "Monitoring"
+          }, {
+            value: "<30min",
+            label: "Response Time"
+          }, {
+            value: "500+",
+            label: "Threats Blocked Daily"
+          }].map((stat, index) => <div key={index} className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
                 <div className="text-4xl font-bold text-primary-500 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-gray-600">{stat.label}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -138,8 +126,6 @@ const Index = () => {
 
       {/* Footer */}
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;

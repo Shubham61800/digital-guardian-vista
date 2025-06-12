@@ -5,12 +5,49 @@
 
 @layer base {
   :root {
-    /* Black and white theme */
-    /* ... keep existing code (theme variables) */
+    /* Yellow and Purple theme */
+    --background: 0 0% 96.5%; /* #F6F6F6 */
+    --foreground: 0 0% 10.2%; /* #1A1A1A */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 0 0% 10.2%; /* #1A1A1A */
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: 0 0% 10.2%; /* #1A1A1A */
+    --primary: 247 100% 83%; /* #BDA5FF */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
+    --secondary: 60 100% 66%; /* #FCEC54 */
+    --secondary-foreground: 0 0% 10.2%; /* #1A1A1A */
+    --muted: 0 0% 96.5%; /* #F6F6F6 */
+    --muted-foreground: 0 0% 43.1%; /* #6E6E6E */
+    --accent: 54 100% 88%; /* #FFFAC2 */
+    --accent-foreground: 0 0% 10.2%; /* #1A1A1A */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 247 100% 83%; /* #BDA5FF */
+    --radius: 0.5rem;
   }
 
   .dark {
-    /* ... keep existing code (dark theme variables) */
+    --background: 0 0% 10.2%; /* #1A1A1A */
+    --foreground: 0 0% 96.5%; /* #F6F6F6 */
+    --card: 0 0% 10.2%; /* #1A1A1A */
+    --card-foreground: 0 0% 96.5%; /* #F6F6F6 */
+    --popover: 0 0% 10.2%; /* #1A1A1A */
+    --popover-foreground: 0 0% 96.5%; /* #F6F6F6 */
+    --primary: 247 100% 83%; /* #BDA5FF */
+    --primary-foreground: 0 0% 10.2%; /* #1A1A1A */
+    --secondary: 60 100% 66%; /* #FCEC54 */
+    --secondary-foreground: 0 0% 10.2%; /* #1A1A1A */
+    --muted: 0 0% 15%; 
+    --muted-foreground: 0 0% 43.1%; /* #6E6E6E */
+    --accent: 54 100% 88%; /* #FFFAC2 */
+    --accent-foreground: 0 0% 10.2%; /* #1A1A1A */
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 247 100% 83%; /* #BDA5FF */
   }
 }
 
@@ -25,19 +62,19 @@
 }
 
 .grid-background {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-                   linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(189, 165, 255, 0.1) 1px, transparent 1px),
+                   linear-gradient(to bottom, rgba(189, 165, 255, 0.1) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
 .hero-gradient {
-  background: radial-gradient(circle at top left, rgba(240, 240, 240, 0.7), transparent 50%),
-              radial-gradient(circle at bottom right, rgba(245, 245, 245, 0.7), transparent 50%);
+  background: radial-gradient(circle at top left, rgba(189, 165, 255, 0.1), transparent 50%),
+              radial-gradient(circle at bottom right, rgba(252, 236, 84, 0.1), transparent 50%);
 }
 
 /* Shuttle Gradient Effect */
 .shuttle-gradient {
-  background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 25%, #f0f0f0 50%, #ffffff 75%, #f5f5f5 100%);
+  background: linear-gradient(135deg, #F6F6F6 0%, #FFFFFF 25%, #BDA5FF 50%, #FFFFFF 75%, #FCEC54 100%);
   background-size: 400% 400%;
   animation: shuttle-gradient-animation 15s ease infinite;
 }
@@ -51,8 +88,8 @@
 /* Frosted glass effect */
 .frosted-glass {
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(189, 165, 255, 0.2);
 }
 
 .animate-float {
@@ -73,16 +110,16 @@
 
 .feature-card {
   transition: all 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(189, 165, 255, 0.1);
 }
 
 .feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 30px -15px rgba(189, 165, 255, 0.3);
 }
 
 .button-glow:hover {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(108, 77, 195, 0.4);
 }
 
 /* Modern typography styles */
@@ -91,8 +128,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-.text-gradient-black {
-  background: linear-gradient(to right, #000, #333);
+.text-gradient-purple {
+  background: linear-gradient(to right, #BDA5FF, #6C4DC3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -104,7 +141,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hover-lift:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 30px -15px rgba(189, 165, 255, 0.2);
 }
 
 /* Modern blob shapes */

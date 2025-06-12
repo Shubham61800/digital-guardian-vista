@@ -32,8 +32,11 @@ export default {
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
-					100: '#F7F7F7', // light gray for black theme
-					500: '#000000', // black
+					100: '#FFFAC2', // Lemon Tint
+					purple: '#BDA5FF', // Primary Purple
+					yellow: '#FCEC54', // Primary Yellow
+					cta: '#6C4DC3', // Deep Purple for CTA
+					hover: '#593DB5', // Dark Lavender for hover
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -50,7 +53,8 @@ export default {
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))',
-					yellow: '#F2F2F2', // light gray instead of yellow for B&W theme
+					yellow: '#FCEC54', // Primary Yellow
+					lemon: '#FFFAC2', // Lemon Tint
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -60,6 +64,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))',
 				},
+				// Custom colors for the new palette
+				gray: {
+					light: '#F6F6F6', // Light Background
+					medium: '#6E6E6E', // Medium Gray
+					charcoal: '#1A1A1A', // Charcoal Black
+				},
+				white: '#FFFFFF', // Pure White
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

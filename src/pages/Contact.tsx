@@ -93,7 +93,7 @@ const Contact = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="name">Name</Label>
-                        <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Your full name" required />
+                        <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Your full name" required className="rounded-md" />
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="email">Email</Label>

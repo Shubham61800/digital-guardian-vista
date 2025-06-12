@@ -45,14 +45,14 @@ const Index = () => {
                 business from evolving threats in the digital landscape.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-primary-500 hover:bg-primary-500/90 text-white button-glow relative overflow-hidden group">
+                <Button size="lg" className="bg-primary-500 hover:bg-primary-500/90 text-white button-glow relative overflow-hidden group bg-primary-hover">
                   <span className="absolute inset-0 w-full h-full bg-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
                   <span className="relative z-10 flex items-center">
                     Get Started
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
                 </Button>
-                <Button size="lg" variant="outline" className="border-black hover:bg-black/5 transition-colors">
+                <Button size="lg" variant="outline" className="border-black transition-colors bg-black text-white">
                   Learn More
                 </Button>
               </div>
@@ -87,9 +87,7 @@ const Index = () => {
       <Features />
 
       {/* Mobile Dashboard (shows only on mobile) */}
-      <div className="lg:hidden py-16 px-6">
-        <DashboardMockup />
-      </div>
+      
 
       {/* Stats Section with Modern Design */}
       <section className="py-20 bg-white relative overflow-hidden">

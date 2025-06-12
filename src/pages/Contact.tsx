@@ -108,7 +108,7 @@ const Contact = () => {
                       <Label htmlFor="message">Message</Label>
                       <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your cybersecurity needs..." className="min-h-[120px]" required />
                     </div>
-                    <Button type="submit" className="w-full bg-primary-500 hover:bg-primary-500/90 text-white button-glow" disabled={isSubmitting}>
+                    <Button type="submit" disabled={isSubmitting} className="w-full bg-primary-500 hover:bg-primary-500/90 text-white button-glow bg-primary-hover">
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
                   </form>

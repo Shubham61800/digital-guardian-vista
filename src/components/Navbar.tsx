@@ -26,6 +26,9 @@ const Navbar = () => {
             <Link to="/contact" className="text-gray-700 hover:text-primary-500 transition-colors">
               Contact
             </Link>
+            <Link to="/blog" className="text-gray-700 hover:text-primary-500 transition-colors">
+              Blog
+            </Link>
             <div className="hidden md:flex items-center space-x-4">
             <Button className="bg-primary-500 hover:bg-primary-500/90 button-glow bg-primary-hover text-white">
              Contact Us
@@ -55,6 +58,9 @@ const Navbar = () => {
               </Link>
               <Link to="/contact" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
                 Contact
+              </Link>
+              <Link to="/blog" className="text-gray-700 hover:text-primary-500 transition-colors py-2">
+                Blog
               </Link>
              
               <div className="pt-2 flex flex-col space-y-3">

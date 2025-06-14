@@ -1,8 +1,8 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 type BlogPost = {
   id: string;
@@ -44,19 +44,29 @@ const Blog = () => {
         <h1 className="text-4xl font-bold text-primary-500 mb-8">Blog</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {loading ? (
-            <div className="col-span-2 text-center text-muted-foreground">Loading blog posts...</div>
+            <div className="col-span-2 text-center text-muted-foreground">
+              Loading blog posts...
+            </div>
           ) : posts.length === 0 ? (
-            <div className="col-span-2 text-center text-muted-foreground">No blog posts found.</div>
+            <div className="col-span-2 text-center text-muted-foreground">
+              No blog posts found.
+            </div>
           ) : (
             posts.map((post) => (
-              <Card key={post.id} className="hover-lift bg-white transition-shadow cursor-pointer">
-                <CardHeader>
-                  <CardTitle className="text-lg">{post.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{post.preview}</p>
-                </CardContent>
-              </Card>
+              <Link
+                key={post.id}
+                to={`/blog/${post.id}`}
+                className="block"
+              >
+                <Card className="hover-lift bg-white transition-shadow cursor-pointer">
+                  <CardHeader>
+                    <CardTitle className="text-lg">{post.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">{post.preview}</p>
+                  </CardContent>
+                </Card>
+              </Link>
             ))
           )}
         </div>

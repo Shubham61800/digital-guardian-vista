@@ -1,3 +1,5 @@
+
+import { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -7,62 +9,146 @@ import TrustedBy from "@/components/TrustedBy";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import gsap from "gsap";
+
 const Index = () => {
-  return <div className="min-h-screen">
+  const headlineRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const btnsRef = useRef<HTMLDivElement>(null);
+  const trustGroupRef = useRef<HTMLDivElement>(null);
+  const bgRef1 = useRef<HTMLDivElement>(null);
+  const bgRef2 = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Staggered text entrance
+    gsap.fromTo(
+      headlineRef.current,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.9, ease: "power2.out" }
+    );
+    gsap.fromTo(
+      subtitleRef.current,
+      { opacity: 0, y: 16 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.3 }
+    );
+    gsap.fromTo(
+      btnsRef.current,
+      { opacity: 0, y: 10 },
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.6 }
+    );
+    gsap.fromTo(
+      trustGroupRef.current,
+      { opacity: 0, y: 8 },
+      { opacity: 1, y: 0, duration: 0.7, ease: "power2.out", delay: 1 }
+    );
+    // Animate floating background shapes
+    if (bgRef1.current && bgRef2.current) {
+      gsap.to(bgRef1.current, {
+        y: 24,
+        duration: 5,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut",
+      });
+      gsap.to(bgRef2.current, {
+        y: -20,
+        duration: 7,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut",
+      });
+    }
+  }, []);
+
+  return (
+    <div className="min-h-screen">
       <Navbar />
 
       {/* Hero Section with Shuttle Gradient */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         {/* Shuttle Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 z-0"></div>
-
-        {/* Modern Geometric Shapes */}
-        <div className="absolute top-20 right-10 w-64 h-64 bg-black/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-black/3 rounded-full blur-3xl"></div>
-
+        {/* Modern Geometric Shapes with parallax/floating */}
+        <div ref={bgRef1} className="absolute top-20 right-10 w-64 h-64 bg-black/5 rounded-full blur-3xl transition-transform"></div>
+        <div ref={bgRef2} className="absolute bottom-10 left-10 w-96 h-96 bg-black/3 rounded-full blur-3xl transition-transform"></div>
         {/* Grid Pattern Overlay */}
         <div className="absolute inset-0 grid-background z-10 opacity-30"></div>
 
         <div className="container mx-auto px-4 md:px-20 relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-block mb-2 px-4 py-1 bg-black/5 backdrop-blur-sm rounded-full">
+              <div className="inline-block mb-2 px-4 py-1 bg-black/5 backdrop-blur-sm rounded-full animate-fade-in">
                 <span className="text-sm font-medium text-black/70">
                   Next-Gen Security Platform
                 </span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+              <h1
+                ref={headlineRef}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 opacity-0"
+              >
                 Secure Your <br />
-                <span className="relative">
-                  <span className="relative z-10 text-primary-500 text-primary-hover">
+                <span className="relative inline-block group">
+                  <span className="relative z-10 text-primary-500 text-primary-hover transition-colors group-hover:text-primary-cta">
                     Digital Future
                   </span>
                   <span className="absolute -bottom-2 left-0 w-full h-3 bg-black/5 rounded-full -z-10 transform -rotate-1"></span>
                 </span>
               </h1>
-              <p className="text-lg text-gray-600 mb-8 max-w-lg">
+              <p
+                ref={subtitleRef}
+                className="text-lg text-gray-600 mb-8 max-w-lg opacity-0"
+              >
                 Comprehensive cybersecurity services designed to protect your
                 business from evolving threats in the digital landscape.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-primary-500 hover:bg-primary-500/90 text-white button-glow relative overflow-hidden group bg-primary-hover">
-                  <span className="absolute inset-0 w-full h-full bg-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
+              {/* Interactive buttons */}
+              <div
+                ref={btnsRef}
+                className="flex flex-col sm:flex-row gap-4 opacity-0"
+              >
+                <Button
+                  size="lg"
+                  className="bg-primary-500 relative overflow-hidden group text-white button-glow transition-all border border-transparent hover:scale-105 focus-visible:scale-105 shadow-lg shadow-primary-100"
+                  style={{ boxShadow: "0 0 0 rgba(189,165,255,0)" }}
+                >
+                  <span className="absolute inset-0 w-full h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out pointer-events-none"></span>
                   <span className="relative z-10 flex items-center">
                     Get Started
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-125" />
                   </span>
                 </Button>
-                <Button size="lg" variant="outline" className="border-black transition-colors bg-black text-white">
-                  Learn More
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-black transition-colors bg-black text-white relative hover:bg-primary-500 hover:text-white group"
+                >
+                  <span className="relative flex items-center">
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-125" />
+                  </span>
                 </Button>
               </div>
 
-              {/* Modern Trust Indicators */}
-              <div className="mt-10 flex items-center space-x-4">
+              {/* Modern Trust Indicators with micro-interactions */}
+              <div
+                ref={trustGroupRef}
+                className="mt-10 flex items-center space-x-4 opacity-0"
+              >
                 <div className="flex -space-x-2">
-                  {[1, 2, 3].map(i => <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-bold">
+                  {[1, 2, 3].map((i) => (
+                    <div
+                      key={i}
+                      className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-bold transition-all hover:ring-4 hover:ring-primary-500/30 scale-100 hover:scale-105 hover:shadow-lg cursor-pointer"
+                      style={{
+                        transition:
+                          "box-shadow 0.2s, transform 0.2s, ring 0.2s",
+                      }}
+                      tabIndex={0}
+                      aria-label={`Trusted user ${i}`}
+                    >
                       {String.fromCharCode(64 + i)}
-                    </div>)}
+                    </div>
+                  ))}
                 </div>
                 <div className="text-sm text-gray-600">
                   Trusted by <span className="font-semibold">500+</span>{" "}
@@ -70,12 +156,14 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="hidden lg:block relative">
+            {/* 
+              <div className="hidden lg:block relative">
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-black/5 rounded-full blur-xl"></div>
               <div className="relative z-10 transform hover:-rotate-2 hover:scale-105 transition-transform duration-500">
                 <DashboardMockup />
               </div>
-             </div> */}
+            </div> 
+            */}
           </div>
         </div>
       </section>
@@ -85,9 +173,6 @@ const Index = () => {
 
       {/* Features Section */}
       <Features />
-
-      {/* Mobile Dashboard (shows only on mobile) */}
-      
 
       {/* Stats Section with Modern Design */}
       <section className="py-20 bg-white relative overflow-hidden">
@@ -124,6 +209,8 @@ const Index = () => {
 
       {/* Footer */}
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

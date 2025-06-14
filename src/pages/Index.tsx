@@ -106,7 +106,7 @@ const Index = () => {
           }, {
             value: "500+",
             label: "Threats Blocked Daily"
-          }].map((stat, index) => <div key={index} className="text-center p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+          }].map((stat, index) => <div key={index} className="text-center p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 bg-transparent">
                 <div className="text-4xl font-bold text-primary-500 mb-2">
                   {stat.value}
                 </div>

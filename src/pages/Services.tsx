@@ -20,16 +20,6 @@ import {
 import { Separator } from "@/components/ui/separator";
 import CTA from "@/components/CTA";
 
-const SERVICES_ACCENTS = [
-  ["from-primary-100", "to-primary-foreground"],        // Soft purple to dark
-  ["from-accent-yellow", "to-primary-100"],             // Yellow to soft purple
-  ["from-primary-purple", "to-accent-lemon"],           // Strong purple to lemon
-  ["from-secondary", "to-primary-foreground"],          // Yellow to dark
-  ["from-primary-cta", "to-primary-100"],               // Deep purple to soft
-  ["from-accent-lemon", "to-accent-yellow"],            // Lemon to yellow
-];
-// You can adjust these Tailwind gradient color classes in tailwind.config.ts for fine-tuning.
-
 const Services = () => {
   const services = [
     {
@@ -151,59 +141,35 @@ const Services = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 z-0"></div>
         <div className="container mx-auto px-4 md:px-20 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
-              const accent = SERVICES_ACCENTS[index % SERVICES_ACCENTS.length];
-              return (
-                <Card
-                  key={index}
-                  className={`
-                    feature-card
-                    overflow-hidden
-                    border-0
-                    shadow-lg
-                    rounded-2xl
-                    transition-all
-                    bg-gradient-to-br ${accent[0]} ${accent[1]}
-                    hover:scale-105
-                    hover:shadow-2xl
-                    hover:ring-2 hover:ring-primary-cta/20
-                  `}
-                  style={{
-                    position: "relative",
-                    zIndex: 0,
-                  }}
-                >
-                  {/* Decorative blob/top left */}
-                  <div className="absolute -top-6 -left-6 w-24 h-24 bg-white/20 rounded-full blur-2xl z-0 animate-float" />
-                  {/* Decorative gradient ring/bottom right */}
-                  <div className="absolute -bottom-7 -right-7 w-16 h-16 bg-primary-cta/30 rounded-full blur-xl z-0" />
-                  <CardHeader className="pb-2 relative z-10">
-                    <div className="w-14 h-14 rounded-xl bg-white/70 flex items-center justify-center mb-5 shadow-lg ring-2 ring-white/60 ring-offset-2 ring-offset-white/45">
-                      <service.icon className="h-7 w-7 text-primary-cta drop-shadow-glow" />
-                    </div>
-                    <CardTitle className="text-lg font-semibold text-gray-900 drop-shadow" style={{ letterSpacing: "-0.01em" }}>
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="relative z-10">
-                    <CardDescription className="text-gray-700 mb-4 font-medium">
-                      {service.description}
-                    </CardDescription>
-                    <Separator className="my-4" />
-                    <div className="space-y-2">
-                      {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center">
-                          <div className="w-2 h-2 rounded-full bg-primary-cta mr-2 shadow-lg"></div>
-                          <span className="text-sm text-gray-800 font-semibold">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            {services.map((service, index) => (
+              <Card
+                key={index}
+                className="feature-card border border-gray-100 bg-white/80 backdrop-blur-sm hover-lift overflow-hidden"
+              >
+                <CardHeader className="pb-2">
+                  <div className="w-12 h-12 rounded-lg bg-black/5 flex items-center justify-center mb-4">
+                    <service.icon className="h-6 w-6 text-primary-500" />
+                  </div>
+                  <CardTitle className="text-xl font-semibold">
+                    {service.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-gray-600 mb-4">
+                    {service.description}
+                  </CardDescription>
+                  <Separator className="my-4" />
+                  <div className="space-y-2">
+                    {service.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary-500 mr-2"></div>
+                        <span className="text-sm text-gray-700">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

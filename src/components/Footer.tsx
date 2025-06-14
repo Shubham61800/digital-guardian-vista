@@ -1,10 +1,11 @@
+
 import { ArrowRight } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-50 pt-16 pb-8">
       <div className="container mx-auto px-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand Column */}
           <div className="col-span-1 lg:col-span-2">
             <div className="text-xl font-bold text-primary-500 mb-4">
@@ -89,37 +90,6 @@ const Footer = () => {
               <li>
                 <a href="#" className="text-gray-600 hover:text-primary-500">
                   Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-4">
-              Resources
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-600 hover:text-primary-500">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-primary-500">
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-600 hover:text-primary-500">
-                  Security Guide
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="inline-flex items-center text-primary-500 hover:text-primary-600"
-                >
-                  Try Demo
-                  <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
               </li>
             </ul>

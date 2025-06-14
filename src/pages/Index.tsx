@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -10,7 +9,6 @@ import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import gsap from "gsap";
-
 const Index = () => {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -18,29 +16,47 @@ const Index = () => {
   const trustGroupRef = useRef<HTMLDivElement>(null);
   const bgRef1 = useRef<HTMLDivElement>(null);
   const bgRef2 = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     // Staggered text entrance
-    gsap.fromTo(
-      headlineRef.current,
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.9, ease: "power2.out" }
-    );
-    gsap.fromTo(
-      subtitleRef.current,
-      { opacity: 0, y: 16 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.3 }
-    );
-    gsap.fromTo(
-      btnsRef.current,
-      { opacity: 0, y: 10 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.6 }
-    );
-    gsap.fromTo(
-      trustGroupRef.current,
-      { opacity: 0, y: 8 },
-      { opacity: 1, y: 0, duration: 0.7, ease: "power2.out", delay: 1 }
-    );
+    gsap.fromTo(headlineRef.current, {
+      opacity: 0,
+      y: 30
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      ease: "power2.out"
+    });
+    gsap.fromTo(subtitleRef.current, {
+      opacity: 0,
+      y: 16
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      delay: 0.3
+    });
+    gsap.fromTo(btnsRef.current, {
+      opacity: 0,
+      y: 10
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      delay: 0.6
+    });
+    gsap.fromTo(trustGroupRef.current, {
+      opacity: 0,
+      y: 8
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: "power2.out",
+      delay: 1
+    });
     // Animate floating background shapes
     if (bgRef1.current && bgRef2.current) {
       gsap.to(bgRef1.current, {
@@ -48,20 +64,18 @@ const Index = () => {
         duration: 5,
         yoyo: true,
         repeat: -1,
-        ease: "sine.inOut",
+        ease: "sine.inOut"
       });
       gsap.to(bgRef2.current, {
         y: -20,
         duration: 7,
         yoyo: true,
         repeat: -1,
-        ease: "sine.inOut",
+        ease: "sine.inOut"
       });
     }
   }, []);
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navbar />
 
       {/* Hero Section with Shuttle Gradient */}
@@ -82,10 +96,7 @@ const Index = () => {
                   Next-Gen Security Platform
                 </span>
               </div>
-              <h1
-                ref={headlineRef}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 opacity-0"
-              >
+              <h1 ref={headlineRef} className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 opacity-0">
                 Secure Your <br />
                 <span className="relative inline-block group">
                   <span className="relative z-10 text-primary-500 text-primary-hover transition-colors group-hover:text-primary-cta">
@@ -94,34 +105,22 @@ const Index = () => {
                   <span className="absolute -bottom-2 left-0 w-full h-3 bg-black/5 rounded-full -z-10 transform -rotate-1"></span>
                 </span>
               </h1>
-              <p
-                ref={subtitleRef}
-                className="text-lg text-gray-600 mb-8 max-w-lg opacity-0"
-              >
+              <p ref={subtitleRef} className="text-lg text-gray-600 mb-8 max-w-lg opacity-0">
                 Comprehensive cybersecurity services designed to protect your
                 business from evolving threats in the digital landscape.
               </p>
               {/* Interactive buttons */}
-              <div
-                ref={btnsRef}
-                className="flex flex-col sm:flex-row gap-4 opacity-0"
-              >
-                <Button
-                  size="lg"
-                  className="bg-primary-500 relative overflow-hidden group text-white button-glow transition-all border border-transparent hover:scale-105 focus-visible:scale-105 shadow-lg shadow-primary-100"
-                  style={{ boxShadow: "0 0 0 rgba(189,165,255,0)" }}
-                >
+              <div ref={btnsRef} className="flex flex-col sm:flex-row gap-4 opacity-0">
+                <Button size="lg" style={{
+                boxShadow: "0 0 0 rgba(189,165,255,0)"
+              }} className="bg-primary-500 relative overflow-hidden group text-white button-glow transition-all border border-transparent hover:scale-105 focus-visible:scale-105 shadow-lg shadow-primary-100 bg-primary-hover">
                   <span className="absolute inset-0 w-full h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out pointer-events-none"></span>
                   <span className="relative z-10 flex items-center">
                     Get Started
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-125" />
                   </span>
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-black transition-colors bg-black text-white relative hover:bg-primary-500 hover:text-white group"
-                >
+                <Button size="lg" variant="outline" className="border-black transition-colors bg-black text-white relative hover:bg-primary-500 hover:text-white group">
                   <span className="relative flex items-center">
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-125" />
@@ -130,25 +129,13 @@ const Index = () => {
               </div>
 
               {/* Modern Trust Indicators with micro-interactions */}
-              <div
-                ref={trustGroupRef}
-                className="mt-10 flex items-center space-x-4 opacity-0"
-              >
+              <div ref={trustGroupRef} className="mt-10 flex items-center space-x-4 opacity-0">
                 <div className="flex -space-x-2">
-                  {[1, 2, 3].map((i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-bold transition-all hover:ring-4 hover:ring-primary-500/30 scale-100 hover:scale-105 hover:shadow-lg cursor-pointer"
-                      style={{
-                        transition:
-                          "box-shadow 0.2s, transform 0.2s, ring 0.2s",
-                      }}
-                      tabIndex={0}
-                      aria-label={`Trusted user ${i}`}
-                    >
+                  {[1, 2, 3].map(i => <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-bold transition-all hover:ring-4 hover:ring-primary-500/30 scale-100 hover:scale-105 hover:shadow-lg cursor-pointer" style={{
+                  transition: "box-shadow 0.2s, transform 0.2s, ring 0.2s"
+                }} tabIndex={0} aria-label={`Trusted user ${i}`}>
                       {String.fromCharCode(64 + i)}
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
                 <div className="text-sm text-gray-600">
                   Trusted by <span className="font-semibold">500+</span>{" "}
@@ -162,8 +149,8 @@ const Index = () => {
               <div className="relative z-10 transform hover:-rotate-2 hover:scale-105 transition-transform duration-500">
                 <DashboardMockup />
               </div>
-            </div> 
-            */}
+             </div> 
+             */}
           </div>
         </div>
       </section>
@@ -209,8 +196,6 @@ const Index = () => {
 
       {/* Footer */}
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;

@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 
 const Footer = () => {
@@ -46,22 +45,34 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-600 hover:text-primary-500">
+                <a
+                  href="/blog"
+                  className="text-gray-600 hover:text-primary-500"
+                >
                   Threat Detection
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-primary-500">
+                <a
+                  href="/blog"
+                  className="text-gray-600 hover:text-primary-500"
+                >
                   Data Protection
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-primary-500">
+                <a
+                  href="/blog"
+                  className="text-gray-600 hover:text-primary-500"
+                >
                   Cloud Security
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-primary-500">
+                <a
+                  href="/blog"
+                  className="text-gray-600 hover:text-primary-500"
+                >
                   Network Defense
                 </a>
               </li>

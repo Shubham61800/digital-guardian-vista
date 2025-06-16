@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -10,19 +9,15 @@ import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import gsap from "gsap";
-
 const Index = () => {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const btnsRef = useRef<HTMLDivElement>(null);
-  const waitlistRef = useRef<HTMLDivElement>(null);
-  const floatingIcon1 = useRef<HTMLDivElement>(null);
-  const floatingIcon2 = useRef<HTMLDivElement>(null);
-  const floatingIcon3 = useRef<HTMLDivElement>(null);
-  const floatingIcon4 = useRef<HTMLDivElement>(null);
-  const floatingIcon5 = useRef<HTMLDivElement>(null);
-  const floatingIcon6 = useRef<HTMLDivElement>(null);
-
+  const trustGroupRef = useRef<HTMLDivElement>(null);
+  const bgRef1 = useRef<HTMLDivElement>(null);
+  const bgRef2 = useRef<HTMLDivElement>(null);
+  const bgRef3 = useRef<HTMLDivElement>(null);
+  const bgRef4 = useRef<HTMLDivElement>(null);
   useEffect(() => {
     // Staggered text entrance
     gsap.fromTo(headlineRef.current, {
@@ -34,7 +29,6 @@ const Index = () => {
       duration: 0.9,
       ease: "power2.out"
     });
-
     gsap.fromTo(subtitleRef.current, {
       opacity: 0,
       y: 16
@@ -45,7 +39,6 @@ const Index = () => {
       ease: "power2.out",
       delay: 0.3
     });
-
     gsap.fromTo(btnsRef.current, {
       opacity: 0,
       y: 10
@@ -56,8 +49,7 @@ const Index = () => {
       ease: "power2.out",
       delay: 0.6
     });
-
-    gsap.fromTo(waitlistRef.current, {
+    gsap.fromTo(trustGroupRef.current, {
       opacity: 0,
       y: 8
     }, {
@@ -68,132 +60,131 @@ const Index = () => {
       delay: 1
     });
 
-    // Animate floating brand icons
-    const icons = [floatingIcon1, floatingIcon2, floatingIcon3, floatingIcon4, floatingIcon5, floatingIcon6];
-    icons.forEach((icon, index) => {
-      if (icon.current) {
-        gsap.fromTo(icon.current, {
-          opacity: 0,
-          scale: 0,
-          y: 50
-        }, {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "back.out(1.7)",
-          delay: 1.2 + (index * 0.1)
-        });
-
-        // Continuous floating animation
-        gsap.to(icon.current, {
-          y: "+=20",
-          rotation: 360,
-          duration: 8 + (index * 0.5),
-          yoyo: true,
-          repeat: -1,
-          ease: "sine.inOut"
-        });
-      }
-    });
+    // Animate floating background shapes
+    if (bgRef1.current && bgRef2.current && bgRef3.current && bgRef4.current) {
+      gsap.to(bgRef1.current, {
+        y: 20,
+        rotation: 360,
+        duration: 8,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut"
+      });
+      gsap.to(bgRef2.current, {
+        y: -15,
+        rotation: -180,
+        duration: 6,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut"
+      });
+      gsap.to(bgRef3.current, {
+        x: 10,
+        y: 25,
+        duration: 7,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut"
+      });
+      gsap.to(bgRef4.current, {
+        x: -15,
+        y: -10,
+        rotation: 180,
+        duration: 9,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut"
+      });
+    }
   }, []);
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navbar />
 
-      {/* Hero Section with Dark Purple Gradient */}
+      {/* Hero Section with Vector Background */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Dark Purple Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900"></div>
+        {/* Vector Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-100 via-white to-accent-lemon"></div>
         
-        {/* Floating Brand Icons */}
-        <div ref={floatingIcon1} className="absolute top-1/4 left-1/6 w-20 h-20 bg-purple-600/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl border border-purple-400/30">
-          <div className="w-8 h-8 bg-white rounded-sm transform rotate-45"></div>
+        {/* Animated Vector Shapes */}
+        <div ref={bgRef1} className="absolute top-20 left-1/4 w-32 h-32 opacity-20">
+          <svg viewBox="0 0 100 100" className="w-full h-full text-primary-purple">
+            <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="currentColor" />
+          </svg>
         </div>
         
-        <div ref={floatingIcon2} className="absolute top-1/3 right-1/5 w-24 h-24 bg-purple-700/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl border border-purple-400/30">
-          <div className="text-white font-bold text-lg">S</div>
+        <div ref={bgRef2} className="absolute top-1/3 right-1/4 w-24 h-24 opacity-15">
+          <svg viewBox="0 0 100 100" className="w-full h-full text-accent-yellow">
+            <circle cx="50" cy="50" r="45" fill="currentColor" />
+          </svg>
         </div>
         
-        <div ref={floatingIcon3} className="absolute bottom-1/3 left-1/5 w-28 h-28 bg-purple-600/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl border border-purple-400/30">
-          <div className="w-10 h-10 border-2 border-white rounded-full"></div>
+        <div ref={bgRef3} className="absolute bottom-1/3 left-1/5 w-40 h-40 opacity-10">
+          <svg viewBox="0 0 100 100" className="w-full h-full text-primary-purple">
+            <path d="M50,5 L85,35 L70,80 L30,80 L15,35 Z" fill="currentColor" />
+          </svg>
         </div>
         
-        <div ref={floatingIcon4} className="absolute bottom-1/4 right-1/6 w-22 h-22 bg-purple-700/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl border border-purple-400/30">
-          <div className="flex flex-col space-y-1">
-            <div className="w-6 h-1 bg-white rounded"></div>
-            <div className="w-6 h-1 bg-white rounded"></div>
-            <div className="w-6 h-1 bg-white rounded"></div>
-          </div>
+        <div ref={bgRef4} className="absolute bottom-20 right-1/5 w-28 h-28 opacity-25">
+          <svg viewBox="0 0 100 100" className="w-full h-full text-accent-yellow">
+            <rect x="15" y="15" width="70" height="70" rx="10" fill="currentColor" />
+          </svg>
         </div>
 
-        <div ref={floatingIcon5} className="absolute top-1/2 left-1/12 w-18 h-18 bg-purple-800/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl border border-purple-400/30">
-          <div className="w-6 h-6 bg-gradient-to-r from-white to-purple-200 rounded-full"></div>
-        </div>
+        {/* Additional decorative elements */}
+        <div className="absolute top-1/2 left-10 w-16 h-16 bg-primary-purple/10 rounded-full blur-xl"></div>
+        <div className="absolute top-1/4 right-10 w-20 h-20 bg-accent-yellow/15 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-12 h-12 bg-primary-purple/20 rounded-full blur-lg"></div>
 
-        <div ref={floatingIcon6} className="absolute top-1/2 right-1/12 w-18 h-18 bg-purple-600/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl border border-purple-400/30">
-          <div className="text-white font-bold">₿</div>
-        </div>
-
-        {/* Glowing Effects */}
-        <div className="absolute top-1/3 left-1/4 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-40 h-40 bg-indigo-500/20 rounded-full blur-3xl"></div>
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 grid-background opacity-5"></div>
 
         {/* Main Content - Center Aligned */}
         <div className="container mx-auto px-4 md:px-20 relative z-20 text-center">
           <div className="max-w-4xl mx-auto">
             {/* Badge */}
-            <div className="inline-block mb-6 px-6 py-2 bg-purple-600/30 backdrop-blur-sm rounded-full shadow-lg border border-purple-400/50">
-              <span className="text-sm font-medium text-purple-200">
-                🚀 Elite Security Launchpad
+            <div className="inline-block mb-6 px-6 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-lg animate-fade-in border border-primary-purple/20">
+              <span className="text-sm font-medium text-primary-cta">
+                🚀 Next-Gen Security Platform
               </span>
             </div>
 
             {/* Main Headline */}
-            <h1 ref={headlineRef} className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 opacity-0 text-white">
-              The Most Exclusive{" "}
+            <h1 ref={headlineRef} className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 opacity-0">
+              Secure Your{" "}
               <span className="relative inline-block group">
-                <span className="relative z-10 bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
-                  Security Platform
+                <span className="relative z-10 bg-gradient-to-r from-primary-purple to-primary-cta bg-clip-text text-transparent">
+                  Digital Future
                 </span>
+                <span className="absolute -bottom-2 left-0 w-full h-4 bg-accent-yellow/30 rounded-full -z-10 transform -rotate-1"></span>
               </span>
-              <br />
-              <span className="text-purple-300">Reserved for Elite & Innovators</span>
             </h1>
 
             {/* Subtitle */}
-            <p ref={subtitleRef} className="text-xl md:text-2xl text-purple-100 mb-10 max-w-2xl mx-auto leading-relaxed opacity-0">
-              A premier security platform where only the best solutions make it through. No spam. No scams. Only the elite.
+            <p ref={subtitleRef} className="text-xl md:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed opacity-0">
+              Comprehensive cybersecurity services designed to protect your
+              business from evolving threats in the digital landscape.
             </p>
 
             {/* Action Buttons */}
             <div ref={btnsRef} className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 opacity-0">
-              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 relative overflow-hidden group text-white shadow-xl shadow-purple-900/50 px-8 py-4 text-lg border border-purple-400/30">
-                <span className="absolute inset-0 w-full h-full bg-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out pointer-events-none"></span>
+              <Button size="lg" className="bg-primary-cta relative overflow-hidden group text-white button-glow transition-all border border-transparent hover:scale-105 focus-visible:scale-105 shadow-xl shadow-primary-100 px-8 py-4 text-lg">
+                <span className="absolute inset-0 w-full h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out pointer-events-none"></span>
                 <span className="relative z-10 flex items-center">
-                  Join Waitlist
+                  Get Started Free
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-125" />
                 </span>
               </Button>
               
-              <Button size="lg" variant="outline" className="border-2 border-purple-400 bg-transparent text-purple-200 hover:bg-purple-600 hover:text-white group shadow-lg px-8 py-4 text-lg backdrop-blur-sm">
+              <Button size="lg" variant="outline" className="border-2 border-primary-purple transition-all bg-white/80 backdrop-blur-sm text-primary-cta relative hover:bg-primary-purple hover:text-white group shadow-lg px-8 py-4 text-lg">
                 <span className="relative flex items-center">
-                  Launch App
+                  Watch Demo
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-125" />
                 </span>
               </Button>
             </div>
 
-            {/* Waitlist Counter */}
-            <div ref={waitlistRef} className="flex items-center justify-center gap-4 opacity-0">
-              <div className="flex -space-x-2">
-                <div className="w-10 h-10 bg-purple-600 rounded-full border-2 border-purple-400 flex items-center justify-center text-white text-xs font-bold">A</div>
-                <div className="w-10 h-10 bg-purple-700 rounded-full border-2 border-purple-400 flex items-center justify-center text-white text-xs font-bold">B</div>
-                <div className="w-10 h-10 bg-purple-800 rounded-full border-2 border-purple-400 flex items-center justify-center text-white text-xs font-bold">C</div>
-              </div>
-              <span className="text-purple-200 font-medium">9,553 People Waiting</span>
-            </div>
+            {/* Trust Indicators */}
+            
           </div>
         </div>
       </section>
@@ -209,19 +200,24 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-tr from-gray-50 to-white"></div>
         <div className="container mx-auto px-4 md:px-20 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { value: "99.9%", label: "Uptime" },
-              { value: "24/7", label: "Monitoring" },
-              { value: "<30min", label: "Response Time" },
-              { value: "500+", label: "Threats Blocked Daily" }
-            ].map((stat, index) => (
-              <div key={index} className="text-center p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 bg-transparent">
+            {[{
+            value: "99.9%",
+            label: "Uptime"
+          }, {
+            value: "24/7",
+            label: "Monitoring"
+          }, {
+            value: "<30min",
+            label: "Response Time"
+          }, {
+            value: "500+",
+            label: "Threats Blocked Daily"
+          }].map((stat, index) => <div key={index} className="text-center p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 bg-transparent">
                 <div className="text-4xl font-bold text-primary-500 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-gray-600">{stat.label}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -234,8 +230,6 @@ const Index = () => {
 
       {/* Footer */}
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;

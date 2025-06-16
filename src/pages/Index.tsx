@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -10,7 +9,6 @@ import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import gsap from "gsap";
-
 const Index = () => {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -20,7 +18,6 @@ const Index = () => {
   const bgRef2 = useRef<HTMLDivElement>(null);
   const bgRef3 = useRef<HTMLDivElement>(null);
   const bgRef4 = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     // Staggered text entrance
     gsap.fromTo(headlineRef.current, {
@@ -32,7 +29,6 @@ const Index = () => {
       duration: 0.9,
       ease: "power2.out"
     });
-
     gsap.fromTo(subtitleRef.current, {
       opacity: 0,
       y: 16
@@ -43,7 +39,6 @@ const Index = () => {
       ease: "power2.out",
       delay: 0.3
     });
-
     gsap.fromTo(btnsRef.current, {
       opacity: 0,
       y: 10
@@ -54,7 +49,6 @@ const Index = () => {
       ease: "power2.out",
       delay: 0.6
     });
-
     gsap.fromTo(trustGroupRef.current, {
       opacity: 0,
       y: 8
@@ -76,7 +70,6 @@ const Index = () => {
         repeat: -1,
         ease: "sine.inOut"
       });
-
       gsap.to(bgRef2.current, {
         y: -15,
         rotation: -180,
@@ -85,7 +78,6 @@ const Index = () => {
         repeat: -1,
         ease: "sine.inOut"
       });
-
       gsap.to(bgRef3.current, {
         x: 10,
         y: 25,
@@ -94,7 +86,6 @@ const Index = () => {
         repeat: -1,
         ease: "sine.inOut"
       });
-
       gsap.to(bgRef4.current, {
         x: -15,
         y: -10,
@@ -106,9 +97,7 @@ const Index = () => {
       });
     }
   }, []);
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navbar />
 
       {/* Hero Section with Vector Background */}
@@ -195,27 +184,7 @@ const Index = () => {
             </div>
 
             {/* Trust Indicators */}
-            <div ref={trustGroupRef} className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 opacity-0">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map(i => (
-                  <div 
-                    key={i} 
-                    className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-purple to-primary-cta border-3 border-white flex items-center justify-center text-white font-bold transition-all hover:ring-4 hover:ring-primary-purple/30 scale-100 hover:scale-110 hover:shadow-xl cursor-pointer shadow-lg"
-                    style={{
-                      transition: "box-shadow 0.2s, transform 0.2s, ring 0.2s"
-                    }}
-                    tabIndex={0} 
-                    aria-label={`Trusted user ${i}`}
-                  >
-                    {String.fromCharCode(64 + i)}
-                  </div>
-                ))}
-              </div>
-              <div className="text-lg text-gray-600 font-medium">
-                Trusted by <span className="font-bold text-primary-cta">500+</span>{" "}
-                companies worldwide
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -231,31 +200,24 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-tr from-gray-50 to-white"></div>
         <div className="container mx-auto px-4 md:px-20 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              {
-                value: "99.9%",
-                label: "Uptime"
-              },
-              {
-                value: "24/7",
-                label: "Monitoring"
-              },
-              {
-                value: "<30min",
-                label: "Response Time"
-              },
-              {
-                value: "500+",
-                label: "Threats Blocked Daily"
-              }
-            ].map((stat, index) => (
-              <div key={index} className="text-center p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 bg-transparent">
+            {[{
+            value: "99.9%",
+            label: "Uptime"
+          }, {
+            value: "24/7",
+            label: "Monitoring"
+          }, {
+            value: "<30min",
+            label: "Response Time"
+          }, {
+            value: "500+",
+            label: "Threats Blocked Daily"
+          }].map((stat, index) => <div key={index} className="text-center p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 bg-transparent">
                 <div className="text-4xl font-bold text-primary-500 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-gray-600">{stat.label}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -268,8 +230,6 @@ const Index = () => {
 
       {/* Footer */}
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;

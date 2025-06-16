@@ -1,4 +1,3 @@
-
 import { useParams, Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,14 +9,16 @@ const DEMO_POSTS = [
   {
     id: "1",
     title: "Unlocking HR Efficiency with AI",
-    preview: "Discover how AI automation is transforming the hiring journey for modern HR teams...",
+    preview:
+      "Discover how AI automation is transforming the hiring journey for modern HR teams...",
     content:
       "In this detailed article, we explore how Artificial Intelligence (AI) is revolutionizing the HR space—from automating repetitive tasks to enhancing candidate experience. Learn how companies are leveraging AI-driven tools to improve efficiency, accuracy, and the overall hiring journey for modern HR teams...",
   },
   {
     id: "2",
     title: "Making Recruitment Data-Driven",
-    preview: "Using analytics tools to power smarter recruiting decisions at scale.",
+    preview:
+      "Using analytics tools to power smarter recruiting decisions at scale.",
     content:
       "Data-driven recruitment is reshaping hiring strategies. In this post, we dive into smart analytics, KPIs, and actionable dashboards that allow HR teams to make more informed, agile decisions. Gain insights into how data unlocks competitive advantages for companies looking to attract the best talent rapidly...",
   },

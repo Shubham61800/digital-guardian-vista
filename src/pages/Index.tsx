@@ -1,6 +1,7 @@
+
 import { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Shield, Zap, Globe } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import DashboardMockup from "@/components/DashboardMockup";
 import Features from "@/components/Features";
@@ -9,39 +10,43 @@ import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import gsap from "gsap";
+
 const Index = () => {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const btnsRef = useRef<HTMLDivElement>(null);
-  const trustGroupRef = useRef<HTMLDivElement>(null);
-  const bgRef1 = useRef<HTMLDivElement>(null);
-  const bgRef2 = useRef<HTMLDivElement>(null);
-  const bgRef3 = useRef<HTMLDivElement>(null);
-  const bgRef4 = useRef<HTMLDivElement>(null);
+  const floatingRef1 = useRef<HTMLDivElement>(null);
+  const floatingRef2 = useRef<HTMLDivElement>(null);
+  const floatingRef3 = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    // Staggered text entrance
+    // Staggered entrance animations
     gsap.fromTo(headlineRef.current, {
+      opacity: 0,
+      y: 50,
+      scale: 0.9
+    }, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 1.2,
+      ease: "power3.out"
+    });
+
+    gsap.fromTo(subtitleRef.current, {
       opacity: 0,
       y: 30
     }, {
       opacity: 1,
       y: 0,
-      duration: 0.9,
-      ease: "power2.out"
-    });
-    gsap.fromTo(subtitleRef.current, {
-      opacity: 0,
-      y: 16
-    }, {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
+      duration: 1,
       ease: "power2.out",
       delay: 0.3
     });
+
     gsap.fromTo(btnsRef.current, {
       opacity: 0,
-      y: 10
+      y: 20
     }, {
       opacity: 1,
       y: 0,
@@ -49,144 +54,143 @@ const Index = () => {
       ease: "power2.out",
       delay: 0.6
     });
-    gsap.fromTo(trustGroupRef.current, {
-      opacity: 0,
-      y: 8
-    }, {
-      opacity: 1,
-      y: 0,
-      duration: 0.7,
-      ease: "power2.out",
-      delay: 1
-    });
 
-    // Animate floating background shapes
-    if (bgRef1.current && bgRef2.current && bgRef3.current && bgRef4.current) {
-      gsap.to(bgRef1.current, {
-        y: 20,
+    // Floating elements animation
+    if (floatingRef1.current && floatingRef2.current && floatingRef3.current) {
+      gsap.to(floatingRef1.current, {
+        y: -20,
         rotation: 360,
         duration: 8,
         yoyo: true,
         repeat: -1,
         ease: "sine.inOut"
       });
-      gsap.to(bgRef2.current, {
-        y: -15,
-        rotation: -180,
-        duration: 6,
-        yoyo: true,
-        repeat: -1,
-        ease: "sine.inOut"
-      });
-      gsap.to(bgRef3.current, {
+
+      gsap.to(floatingRef2.current, {
+        y: 15,
         x: 10,
-        y: 25,
-        duration: 7,
+        rotation: -180,
+        duration: 10,
         yoyo: true,
         repeat: -1,
         ease: "sine.inOut"
       });
-      gsap.to(bgRef4.current, {
+
+      gsap.to(floatingRef3.current, {
+        y: -25,
         x: -15,
-        y: -10,
         rotation: 180,
-        duration: 9,
+        duration: 12,
         yoyo: true,
         repeat: -1,
         ease: "sine.inOut"
       });
     }
   }, []);
-  return <div className="min-h-screen">
+
+  return (
+    <div className="min-h-screen">
       <Navbar />
 
-      {/* Hero Section with Vector Background */}
-      <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Vector Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-100 via-white to-accent-lemon"></div>
+      {/* Modern Hero Section */}
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+        {/* Animated gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-transparent to-blue-600/10 animate-pulse"></div>
         
-        {/* Animated Vector Shapes */}
-        <div ref={bgRef1} className="absolute top-20 left-1/4 w-32 h-32 opacity-20">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-primary-purple">
-            <polygon points="50,5 90,25 90,75 50,95 10,75 10,25" fill="currentColor" />
-          </svg>
-        </div>
-        
-        <div ref={bgRef2} className="absolute top-1/3 right-1/4 w-24 h-24 opacity-15">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-accent-yellow">
-            <circle cx="50" cy="50" r="45" fill="currentColor" />
-          </svg>
-        </div>
-        
-        <div ref={bgRef3} className="absolute bottom-1/3 left-1/5 w-40 h-40 opacity-10">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-primary-purple">
-            <path d="M50,5 L85,35 L70,80 L30,80 L15,35 Z" fill="currentColor" />
-          </svg>
-        </div>
-        
-        <div ref={bgRef4} className="absolute bottom-20 right-1/5 w-28 h-28 opacity-25">
-          <svg viewBox="0 0 100 100" className="w-full h-full text-accent-yellow">
-            <rect x="15" y="15" width="70" height="70" rx="10" fill="currentColor" />
-          </svg>
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }}></div>
         </div>
 
-        {/* Additional decorative elements */}
-        <div className="absolute top-1/2 left-10 w-16 h-16 bg-primary-purple/10 rounded-full blur-xl"></div>
-        <div className="absolute top-1/4 right-10 w-20 h-20 bg-accent-yellow/15 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-12 h-12 bg-primary-purple/20 rounded-full blur-lg"></div>
+        {/* Floating geometric elements */}
+        <div ref={floatingRef1} className="absolute top-20 left-1/4 w-24 h-24 opacity-20">
+          <div className="w-full h-full bg-gradient-to-br from-purple-400 to-pink-400 rounded-2xl rotate-45 blur-sm"></div>
+        </div>
+        
+        <div ref={floatingRef2} className="absolute top-1/3 right-1/4 w-32 h-32 opacity-15">
+          <div className="w-full h-full bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full blur-md"></div>
+        </div>
+        
+        <div ref={floatingRef3} className="absolute bottom-1/3 left-1/6 w-20 h-20 opacity-25">
+          <div className="w-full h-full bg-gradient-to-br from-yellow-400 to-orange-400 rounded-lg rotate-12 blur-sm"></div>
+        </div>
 
-        {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 grid-background opacity-5"></div>
+        {/* Floating icons */}
+        <div className="absolute top-1/4 left-1/5 opacity-30">
+          <Shield className="w-8 h-8 text-purple-300 animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }} />
+        </div>
+        <div className="absolute top-2/3 right-1/5 opacity-30">
+          <Zap className="w-6 h-6 text-blue-300 animate-bounce" style={{ animationDelay: '1s', animationDuration: '4s' }} />
+        </div>
+        <div className="absolute bottom-1/4 left-1/3 opacity-30">
+          <Globe className="w-7 h-7 text-cyan-300 animate-bounce" style={{ animationDelay: '2s', animationDuration: '5s' }} />
+        </div>
 
-        {/* Main Content - Center Aligned */}
+        {/* Main content */}
         <div className="container mx-auto px-4 md:px-20 relative z-20 text-center">
-          <div className="max-w-4xl mx-auto">
-            {/* Badge */}
-            <div className="inline-block mb-6 px-6 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-lg animate-fade-in border border-primary-purple/20">
-              <span className="text-sm font-medium text-primary-cta">
-                🚀 Next-Gen Security Platform
+          <div className="max-w-5xl mx-auto">
+            {/* Modern badge */}
+            <div className="inline-flex items-center mb-8 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-2xl">
+              <span className="text-sm font-medium text-white flex items-center">
+                <span className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></span>
+                🚀 Next-Generation Security Platform
               </span>
             </div>
 
-            {/* Main Headline */}
-            <h1 ref={headlineRef} className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 opacity-0">
-              Secure Your{" "}
-              <span className="relative inline-block group">
-                <span className="relative z-10 bg-gradient-to-r from-primary-purple to-primary-cta bg-clip-text text-transparent">
-                  Digital Future
-                </span>
-                <span className="absolute -bottom-2 left-0 w-full h-4 bg-accent-yellow/30 rounded-full -z-10 transform -rotate-1"></span>
+            {/* Modern headline with gradient text */}
+            <h1 ref={headlineRef} className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 opacity-0">
+              <span className="block text-white mb-4">Secure Your</span>
+              <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent relative">
+                Digital Future
+                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
               </span>
             </h1>
 
-            {/* Subtitle */}
-            <p ref={subtitleRef} className="text-xl md:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed opacity-0">
-              Comprehensive cybersecurity services designed to protect your
-              business from evolving threats in the digital landscape.
+            {/* Modern subtitle */}
+            <p ref={subtitleRef} className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed opacity-0">
+              Advanced cybersecurity solutions powered by AI and machine learning to protect your business from evolving digital threats.
             </p>
 
-            {/* Action Buttons */}
-            <div ref={btnsRef} className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 opacity-0">
-              <Button size="lg" className="bg-primary-cta relative overflow-hidden group text-white button-glow transition-all border border-transparent hover:scale-105 focus-visible:scale-105 shadow-xl shadow-primary-100 px-8 py-4 text-lg">
-                <span className="absolute inset-0 w-full h-full bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out pointer-events-none"></span>
-                <span className="relative z-10 flex items-center">
+            {/* Modern action buttons */}
+            <div ref={btnsRef} className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 opacity-0">
+              <Button size="lg" className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-10 py-6 text-lg rounded-2xl shadow-2xl shadow-purple-500/25 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/40 border-0 group">
+                <span className="flex items-center">
                   Get Started Free
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-125" />
+                  <ArrowRight className="ml-3 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
               </Button>
               
-              <Button size="lg" variant="outline" className="border-2 border-primary-purple transition-all bg-white/80 backdrop-blur-sm text-primary-cta relative hover:bg-primary-purple hover:text-white group shadow-lg px-8 py-4 text-lg">
-                <span className="relative flex items-center">
+              <Button size="lg" variant="outline" className="border-2 border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white/20 px-10 py-6 text-lg rounded-2xl transition-all duration-300 hover:scale-105 group">
+                <span className="flex items-center">
                   Watch Demo
-                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-125" />
+                  <ArrowRight className="ml-3 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
               </Button>
             </div>
 
-            {/* Trust Indicators */}
-            
+            {/* Modern stats cards */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {[
+                { value: "99.9%", label: "Uptime", icon: "⚡" },
+                { value: "24/7", label: "Monitoring", icon: "🛡️" },
+                { value: "<30s", label: "Response", icon: "⚡" },
+                { value: "500K+", label: "Threats Blocked", icon: "🔒" }
+              ].map((stat, index) => (
+                <div key={index} className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
+                  <div className="text-2xl mb-2">{stat.icon}</div>
+                  <div className="text-2xl md:text-3xl font-bold text-white mb-1">{stat.value}</div>
+                  <div className="text-sm text-gray-300">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
+
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
       </section>
 
       {/* Trusted By Section */}
@@ -212,12 +216,14 @@ const Index = () => {
           }, {
             value: "500+",
             label: "Threats Blocked Daily"
-          }].map((stat, index) => <div key={index} className="text-center p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 bg-transparent">
+          }].map((stat, index) => (
+              <div key={index} className="text-center p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 bg-transparent">
                 <div className="text-4xl font-bold text-primary-500 mb-2">
                   {stat.value}
                 </div>
                 <div className="text-gray-600">{stat.label}</div>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -230,6 +236,8 @@ const Index = () => {
 
       {/* Footer */}
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
